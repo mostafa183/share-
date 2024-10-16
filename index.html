@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Card with Share Button</title>
+    <style>
+        /* General body styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e8f0fa;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Card container */
+        .card {
+            display: flex;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-width: 700px;
+            width: 100%;
+        }
+
+        /* Image section */
+        .card-image {
+            width: 40%;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Info section */
+        .card-info {
+            padding: 20px;
+            width: 60%;
+            position: relative;
+        }
+
+        .card-info h1 {
+            font-size: 18px;
+            margin: 0;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .card-info p {
+            font-size: 14px;
+            color: #777;
+            margin: 10px 0;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .author-image {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 10px;
+        }
+
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-details {
+            font-size: 12px;
+            color: #777;
+        }
+
+        .author-details h2 {
+            margin: 0;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .share-button {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: #eff6fb;
+            border-radius: 50%;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .share-button img {
+            width: 15px;
+            height: 15px;
+        }
+
+        /* Share menu styling */
+        .share-menu {
+            position: absolute;
+            bottom: 60px;
+            right: 20px;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 10px;
+            display: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .share-menu::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 10px;
+            border-style: solid;
+            border-color: transparent transparent #333 transparent;
+        }
+
+        .share-menu span {
+            color: #fff;
+            font-size: 12px;
+            margin-right: 10px;
+        }
+
+        .share-menu img {
+            width: 15px;
+            height: 15px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .card {
+                flex-direction: column;
+                max-width: 90%;
+            }
+
+            .card-image {
+                width: 100%;
+            }
+
+            .card-info {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card-info h1 {
+                font-size: 16px;
+            }
+
+            .card-info p {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <!-- Image Section -->
+        <div class="card-image">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjc9OXNed13rdTPlbAL7JKfA7WoKLKLpkwgnPnLmb-gnQGENcxJTm4lV4Xhf0pMboYTt2iYTVnRRGn7CQa_h4uNrBgRdPqhbIet_KmHOONODJz9N4LCdG578wlsyq8ep6HfX7E_jIgOSHGTfl_Uc-JNireV41KkJtX7uD1JYPwLlIyBk4RDWSHSboKid_kv/s320/drawers.jpg">
+        </div>
+
+        <!-- Info Section -->
+        <div class="card-info">
+            <h1>Shift the overall look and feel by adding these wonderful touches to furniture in your home</h1>
+            <p>Ever been in a room and felt like something was missing? Perhaps it felt slightly bare and uninspiring. We've got some simple tips to help you make any room feel complete.</p>
+            
+            <!-- Author Info -->
+            <div class="author-info">
+                <div class="author-image">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjf2nHTjmn-qPDxOLpmoo6lDWg2TQA4mYyHpIQapKSlExBW_k6nxbazNqu3VP-x0h3bveo2OQ4qLupswyUWKplKj3hAuiXSBuWZITM-P2b0jF2nt7zTvXaDd3y4jEdeds7a8C-g1ULxNFiSDRmMxIONll7UyHpF-GxuuZZXZpBEm37xtIYYUbSBcnFA6FjX/s1600/avatar-michelle.jpg" alt="Author Image">
+                </div>
+                <div class="author-details">
+                    <h2>Michelle Appleton</h2>
+                    <p>28 Jun 2020</p>
+                </div>
+            </div>
+
+            <!-- Share Button -->
+            <div class="share-button" id="shareBtn">
+                <img src="https://img.icons8.com/ios-glyphs/30/000000/share-rounded.png" alt="Share Icon">
+            </div>
+
+            <!-- Share Menu -->
+            <div class="share-menu" id="shareMenu">
+                <span>SHARE</span>
+                <img src="https://img.icons8.com/material-outlined/24/ffffff/facebook.png" alt="Facebook">
+                <img src="https://img.icons8.com/material-outlined/24/ffffff/twitter.png" alt="Twitter">
+                <img src="https://img.icons8.com/material-outlined/24/ffffff/pinterest.png" alt="Pinterest">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const shareBtn = document.getElementById('shareBtn');
+        const shareMenu = document.getElementById('shareMenu');
+
+        // Toggle share menu visibility
+        shareBtn.addEventListener('click', () => {
+            if (shareMenu.style.display === 'none' || shareMenu.style.display === '') {
+                shareMenu.style.display = 'flex';
+            } else {
+                shareMenu.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
